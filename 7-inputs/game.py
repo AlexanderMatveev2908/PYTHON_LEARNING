@@ -1,12 +1,17 @@
 import random as rdm
 import math as mt
+from enum import Enum
+from typing import Literal
 
-args = ['R', 'P', 'S']
-win_map = {
-    'R': 'S',
-    'P': 'R',
-    'S': 'P'
-}
+
+class WinMap(Enum):
+    R = 'P'
+    P = 'R'
+    S = 'P'
+
+
+Args = Literal['R', 'P', 'S']
+args: tuple[Args, Args, Args] = ('R', 'P', 'S')
 
 
 def min_max(min: int, max: int) -> int:
@@ -20,6 +25,7 @@ Enter...
 2 -> Paper
 3 -> Scissors
 q -> Quit
+
 ''')
 
     if user_chc.lower() == 'q':
@@ -42,7 +48,7 @@ q -> Quit
 
     if cpu_val == user_val:
         print("🤝 Tie!")
-    elif win_map[user_val] == cpu_val:
+    elif WinMap[user_val].value == cpu_val:
         print("🎉 You win!")
     else:
         print("💀 You lose!")
