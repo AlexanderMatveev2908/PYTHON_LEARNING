@@ -1,0 +1,1 @@
+print(isinstance(True, bool))
