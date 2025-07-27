@@ -18,7 +18,7 @@ def min_max(min: int, max: int) -> int:
     return mt.floor(rdm.random() * (max - min + 1)) + min
 
 
-while True:
+while 1:
     user_chc: str | int = input('''
 Enter...
 1 -> Rock
