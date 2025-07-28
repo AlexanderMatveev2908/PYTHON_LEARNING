@@ -22,6 +22,10 @@ class Person:
             f"and {self._income + 1000}"
         )
 
+    @staticmethod
+    def species() -> str:
+        return "Homo Sapiens Sapiens"
+
     def __get_count(self) -> None:
         print(f"i earn {self._income} for month")
 
@@ -65,3 +69,10 @@ lw = Lawyer("Saul", 35, "Albequrqe", 100000, "Some fancy car")
 
 lw.greet()
 lw.speach()
+
+print(isinstance(p, Person))
+print(isinstance(lw, Person))
+print(issubclass(Lawyer, Person))
+print(type(lw) is Lawyer)
+
+print(p.species())
