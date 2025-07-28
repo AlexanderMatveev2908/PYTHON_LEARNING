@@ -1,4 +1,5 @@
 anyio==4.9.0
+attrs==25.3.0
 black==25.1.0
 click==8.2.1
 idna==3.10
