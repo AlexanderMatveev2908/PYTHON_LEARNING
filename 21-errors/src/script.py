@@ -1,7 +1,8 @@
-from typing import Any, Dict
+import traceback
+from typing import Any, Callable, Dict, Optional
 
 
-class Err(ValueError):
+class Err(Exception):
     def __init__(self, msg: str, *, code: int = 500) -> None:
         super().__init__(f"😡 {msg}")
 
@@ -22,7 +23,7 @@ d = {
 }
 
 
-def dest(d: Dict[str, Any], k: str) -> Any | None:
+def dtr(d: Dict[str, Any], k: str) -> Any | None:
 
     if k in d:
         return d[k]
@@ -31,10 +32,28 @@ def dest(d: Dict[str, Any], k: str) -> Any | None:
         if not isinstance(v, dict):
             continue
 
-        found = dest(v, k)
+        found = dtr(v, k)
         if found is not None:
             return found
 
 
-v = dest(d, "pre_renovation")
+v = dtr(d, "pre_renovation")
 print(v)
+
+
+def tc(cb: Callable[..., Optional[Any]]):
+    try:
+        try:
+            cb()
+        except Exception as err:
+            raise Err(str(err)) from err
+    except Err as err:
+        print(traceback.print_exc())
+        print(err)
+
+
+# def b() -> None:
+#     4 + "h"
+
+
+# tc(b)
