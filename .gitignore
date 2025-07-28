@@ -1,5 +1,48 @@
+# Virtual environments
 venv/
-.ruff_cache/
-.mypy_cache/
+.venv/
+
+# Bytecode and cache
 __pycache__/
-.vscode/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Tool-specific caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.tox/
+.coverage
+coverage.xml
+htmlcov/
+
+
+# VS Code settings
+# .vscode/
+
+# Env / dotenv files
+.env
+.env.*
+
+# Logs and misc
+*.log
+*.sqlite3
+*.db
+*.pid
+
+# Jupyter & IPython
+.ipynb_checkpoints/
+.ipython/
+
+# Mac/Linux/Windows system files
+.DS_Store
+Thumbs.db
+
+
+build/
+dist/
+*.spec
+assets/
+uploads/
+logger/
