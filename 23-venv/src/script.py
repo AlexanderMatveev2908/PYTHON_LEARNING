@@ -1,6 +1,11 @@
 import asyncio
 from typing import Dict
 import httpx
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 api = httpx.AsyncClient(base_url="https://jsonplaceholder.typicode.com")
 
@@ -30,4 +35,6 @@ async def main() -> None:
             print(data[i])
 
 
-asyncio.run(main())
+# asyncio.run(main())
+
+print(os.getenv("SECRET"))
